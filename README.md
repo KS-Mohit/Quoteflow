@@ -18,7 +18,7 @@ Build a semantic quote retrieval system that:
 | Dataset                | [`Abirate/english_quotes`](https://huggingface.co/datasets/Abirate/english_quotes)  |
 | Embedding Model        | `DistilBERT` from SentenceTransformers                                        |
 | Retriever              | `FAISS` for vector similarity search                                                |
-| LLM for Generation     | `Ollama`                         |
+| LLM for Generation     | `Mistral-7B`                         |
 | Evaluation Framework   | `RAGAS`                                                                             |
 | Frontend               | `Streamlit`                                                                         |
 
@@ -43,7 +43,7 @@ Build a semantic quote retrieval system that:
 - On query input, the system retrieves top-k similar quotes based on vector similarity.
 
 ### Generation:
-- Retrieved quote context passed to `Ollama`.
+- Retrieved quote context passed to `Mistral-7B`.
 - Prompt engineering used to construct coherent answers from retrieved data.
 - Structured output includes:
   - Relevant quotes
