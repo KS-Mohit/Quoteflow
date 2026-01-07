@@ -12,7 +12,7 @@ import os
 # Page configuration
 st.set_page_config(
     page_title="Quotes RAG Application",
-    page_icon="📚",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -114,7 +114,7 @@ class StreamlitRAGPipeline:
 
 def main():
     # Header
-    st.title("📚 Quotes RAG Application")
+    st.title(" Quotes RAG Application")
     st.markdown("**Retrieval Augmented Generation for English Quotes**")
     st.markdown("Search for quotes using natural language queries!")
     
@@ -146,11 +146,11 @@ def main():
     ]
     
     for example in example_queries:
-        if st.sidebar.button(f"📝 {example}", key=example):
+        if st.sidebar.button(f" {example}", key=example):
             st.session_state.query = example
     
     # Main search interface
-    st.header("🔍 Search Quotes")
+    st.header(" Search Quotes")
     
     # Query input
     query = st.text_input(
@@ -169,7 +169,7 @@ def main():
                 response = rag_pipeline.generate_response(query, results)
             
             # Display results
-            st.header("📋 Results")
+            st.header(" Results")
             
             # Summary
             st.info(f"**Summary:** {response['summary']}")
@@ -185,7 +185,7 @@ def main():
             
             # Display quotes
             if response['quotes']:
-                st.subheader("📖 Quotes")
+                st.subheader(" Quotes")
                 
                 for i, quote_data in enumerate(response['quotes']):
                     with st.expander(f"Quote {i+1}: {quote_data['author']}", expanded=i<3):
@@ -197,13 +197,13 @@ def main():
                             st.markdown(f"**Similarity Score:** {quote_data['similarity_score']:.4f}")
                 
                 # JSON Response
-                st.subheader("🔧 JSON Response")
+                st.subheader(" JSON Response")
                 with st.expander("View structured JSON response"):
                     st.json(response)
             
             # Additional insights
             if response['authors'] or response['themes']:
-                st.subheader("📊 Insights")
+                st.subheader(" Insights")
                 
                 col1, col2 = st.columns(2)
                 
@@ -227,7 +227,7 @@ def main():
     st.markdown(
         """
         <div style='text-align: center'>
-            <p>📚 Quotes RAG Application | Built with Streamlit & Sentence Transformers</p>
+            <p> Quotes RAG Application | Built with Streamlit & Sentence Transformers</p>
         </div>
         """, 
         unsafe_allow_html=True
